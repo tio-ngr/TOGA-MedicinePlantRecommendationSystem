@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <title>Sistem Rekomendasi TOGA</title>
+</head>
+
+<body style="background-color: #F8F9F9;">
+  <!--   Header -->
+  <div class="d-flex justify-content-between align-items-center px-5 py-3">
+    
+    <h1>Sistem Rekomendasi Tanaman Obat Keluarga</h1>
+    
+  </div>
+  <!-- Header End  -->
+
+  <div class="container-fluid my-5">
+    <div class="mx-5">
+      <div class="row gx-5">
+        <div class="p-5 col-8 card" style="background-color: #e9e8e8;">
+          <form action="/predict" method="post">
+            <!-- Input Lama Bekerja (Tahun) -->
+            <div class="mb-3">
+            <h3> Masukan Penyakit yang dirasa</h3>
+                <br>
+                  <form action="{{ url_for('predict')}}" method="post">
+                  </tr>
+                  <tr class="mb-3">
+                    <td>
+                      <select label="penyakit1" name="penyakit1" required>
+                        <option value="" selected disabled>Pilih Penyakit Pertama</option>
+                        <option value="0">Batuk</option>
+                        <option value="1">Nafsu Makan</option>
+                        <option value="2">Sakit Perut</option>
+                        <option value="3">Sakit Kepala</option>
+                        <option value="4">Perut Kembung</option>
+                        <option value="5">Radang Amandel</option>
+                        <option value="6">Asma</option>
+                        <option value="7">Sembelit</option>
+                        <option value="8">Masuk Angin</option>
+                        <option value="9">Sariawan</option>
+                        <option value="10">Maag</option>
+                        <option value="11">Demam</option>
+                        <option value="12">Muntah</option>
+                        <option value="13">Bau Mulut</option>
+                        <option value="14">Sakit Mata</option>
+                        <option value="15">Kulit Gatel</option>
+                        <option value="16">Jerawat</option>
+                        <option value="17">Pendarahan Gusi</option>
+                        <option value="18">Mimisan</option>
+            <!-- {#            <option value="19">menambah stamina</option>#}
+            {#            <option value="20">kemandulan</option>#}
+            {#            <option value="21">infeksi luka</option>#}
+            {#            <option value="22">ejakulasi dini</option>#}
+            {#            <option value="23">bau badan</option>#}
+            {#            <option value="24">kencing manis</option>#}
+            {#            <option value="25">tifus</option>#}
+            {#            <option value="26">malaria</option>#}
+            {#            <option value="27">syphilis</option>#}
+            {#            <option value="28">asam urat</option>#}
+            {#            <option value="29">kolestrol</option>#}
+            {#            <option value="30">diabetes</option>#}
+            {#            <option value="31">sesak nafas</option>#}
+            {#            <option value="32">anemia</option>#}
+            {#            <option value="33">mempercepat penyembuhan luka</option>#}
+            {#            <option value="34">anemia</option>#}
+            {#            <option value="35">darah rendah</option>#}
+            {#            <option value="36">masalah haid</option>#}
+            {#            <option value="37">kudis</option>#}
+            {#            <option value="38">cacingan</option>#}
+            {#            <option value="29">rambut rontok</option>#}
+            {#            <option value="40">ketombe</option>#}
+            {#            <option value="41">peredaran darah kurang lancar</option>#}
+            {#            <option value="42">radang</option>#}
+            {#            <option value="43">darah tinggi</option>#}
+            {#            <option value="44">gangguan pencernaan anak</option>#}
+            {#            <option value="45">nyeri pinggang</option>#} -->
+                    </select>
+                    </td>
+                
+                  </tr>
+                  <tr class="mb-3">
+                    <td>
+                      <select label="penyakit2" name="penyakit2" required>
+                        <option value="" selected disabled>Pilih Penyakit Pertama</option>
+                        <option value="0">Batuk</option>
+                        <option value="1">Nafsu Makan</option>
+                        <option value="2">Sakit Perut</option>
+                        <option value="3">Sakit Kepala</option>
+                        <option value="4">Perut Kembung</option>
+                        <option value="5">Radang Amandel</option>
+                        <option value="6">Asma</option>
+                        <option value="7">Sembelit</option>
+                        <option value="8">Masuk Angin</option>
+                        <option value="9">Sariawan</option>
+                        <option value="10">Maag</option>
+                        <option value="11">Demam</option>
+                        <option value="12">Muntah</option>
+                        <option value="13">Bau Mulut</option>
+                        <option value="14">Sakit Mata</option>
+                        <option value="15">Kulit Gatel</option>
+                        <option value="16">Jerawat</option>
+                        <option value="17">Pendarahan Gusi</option>
+                        <option value="18">Mimisan</option>
+            <!-- {#            <option value="19">menambah stamina</option>#}
+            {#            <option value="20">kemandulan</option>#}
+            {#            <option value="21">infeksi luka</option>#}
+            {#            <option value="22">ejakulasi dini</option>#}
+            {#            <option value="23">bau badan</option>#}
+            {#            <option value="24">kencing manis</option>#}
+            {#            <option value="25">tifus</option>#}
+            {#            <option value="26">malaria</option>#}
+            {#            <option value="27">syphilis</option>#}
+            {#            <option value="28">asam urat</option>#}
+            {#            <option value="29">kolestrol</option>#}
+            {#            <option value="30">diabetes</option>#}
+            {#            <option value="31">sesak nafas</option>#}
+            {#            <option value="32">anemia</option>#}
+            {#            <option value="33">mempercepat penyembuhan luka</option>#}
+            {#            <option value="34">anemia</option>#}
+            {#            <option value="35">darah rendah</option>#}
+            {#            <option value="36">masalah haid</option>#}
+            {#            <option value="37">kudis</option>#}
+            {#            <option value="38">cacingan</option>#}
+            {#            <option value="29">rambut rontok</option>#}
+            {#            <option value="40">ketombe</option>#}
+            {#            <option value="41">peredaran darah kurang lancar</option>#}
+            {#            <option value="42">radang</option>#}
+            {#            <option value="43">darah tinggi</option>#}
+            {#            <option value="44">gangguan pencernaan anak</option>#}
+            {#            <option value="45">nyeri pinggang</option>#} -->
+                    </select>
+                  </td>
+                  <br>
+                  <hr>
+                <!-- <button type="submit" name="export" value="export" class="btn"> Export</button> -->
+              <br>
+              <br>
+
+            <!-- Button Submit -->
+            <div>
+              <button type="submit" class="btn btn-success">Rekomendasi</button>
+            </div>
+            <!-- End of Button Submit -->
+          </form>
+        </div>
+
+        <div class="col-4 pt-3 px-2 card gx-3" style="background-color: #E2F6FF;">
+          <h3 class="text-center">Hasil Rekomendasi</h2>
+            
+            {% if hasil_prediksi %}
+            <p class="text-center">Rekomendasi Tanaman <span class="fw-bold">{{hasil_prediksi}}</span></p>
+            {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+	<!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
