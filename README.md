@@ -1,6 +1,7 @@
 # How to run TOGA
 
-a. Git Clone or Download File Project on mygithub
+a. Git Clone or Download File Project on mygithub 
+<br>
 b. Install pip virtualenv
 c. Create virtualenv
 d. Activate virtualenv
